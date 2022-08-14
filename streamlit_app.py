@@ -2,13 +2,6 @@ import streamlit
 import pandas as pd
 import snowflake.connector
 
-my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
-my_cur = my_cnx.cursor()
-my_cur.execute("select current_user(), current_account(), current_region()")
-my_data_row = my_cur.fetchone()
-streamlit.text("Hello from Snowflake:")
-streamlit.text(my_data_row)
-
 streamlit.title("My Mom's New Healthy Diner")
 
 streamlit.header('Breakfast Favorites')
@@ -43,4 +36,10 @@ fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
 # creates table format of json data
 streamlit.dataframe(fruityvice_normalized)
 
-
+#Snowflake connection 
+my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+my_cur = my_cnx.cursor()
+my_cur.execute("select current_user(), current_account(), current_region()")
+my_data_row = my_cur.fetchone()
+streamlit.text("Hello from Snowflake:")
+streamlit.text(my_data_row)
