@@ -64,7 +64,7 @@ def insert_row_snowflake(new_fruit):
     return "Thanks for adding "+ new_fruit
   
 add_my_fruit = streamlit.text_input("What fruit would you like to add?")
-streamlit.text('You are adding these Fruits ',+ add_my_fruit)
+streamlit.text("You are adding these Fruits ", add_my_fruit)
 
 streamlit.stop()
 if streamlit.button('Add a Fruit to the list'):
